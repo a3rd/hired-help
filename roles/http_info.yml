@@ -1,0 +1,20 @@
+---
+- hosts: webservers
+  remote_user: root
+  connection: local
+  tasks:
+
+#     - ping
+
+     - name: Check HTTP service
+       service: name=httpd state=started
+
+     - name: cat home page
+        command: 'cat /var/www/html/index.html'
+
+#     - name: Redirect port 80 to 8080
+ 
+
+     - name: Check SSHD service
+       service: name=sshd state=started
+

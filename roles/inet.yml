@@ -1,0 +1,14 @@
+---
+- hosts: webservers
+#  connection: local
+  tasks:
+     - name: Check Public IP Address
+       command: /usr/bin/curl ipinfo.io/ip
+       register: public_ip
+     - debug: var=public_ip.stdout
+
+     - name: Check Local IP Address
+       command: 'ifconfig ens3 | grep inet'
+       register: local_ip
+     - debug: var=local_ip.stdout_lines
+

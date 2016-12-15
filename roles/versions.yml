@@ -1,0 +1,25 @@
+---
+- hosts: webservers
+#  connection: local
+  tasks:
+     - name: Check SSHD version
+       shell: 'yum list installed openssh-server | grep openssh-server'
+       register: sshd
+
+     - debug:
+         msg: "{{sshd.stdout}}"
+
+     - name: Check HTTP server version
+       shell: 'yum list installed httpd | grep httpd'
+       register: httpd
+
+     - debug: 
+         msg: "{{httpd.stdout}}"
+      
+     - name: Check curl version
+       shell: 'yum list installed curl | grep curl'
+       register: curl
+  
+     - debug:
+         msg: "{{curl.stdout}}"
+

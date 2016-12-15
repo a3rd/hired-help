@@ -1,0 +1,15 @@
+---
+- hosts: webservers
+  connection: local
+  tasks:
+     - name: Check HTTP service
+       service: name=httpd state=started
+
+     - name: Check Permissons for /var/www/html
+       acl: 
+         name: /var/www/html
+       register: acl_info
+
+     - name: Check SSHD service
+       service: name=sshd state=started
+

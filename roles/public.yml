@@ -1,0 +1,12 @@
+---
+- hosts: webservers
+#  connection: local
+  tasks:
+     - name: Check Public IP Address
+       command: /usr/bin/curl ipinfo.io/ip
+       register: curl
+     - debug: var=curl.stdout
+
+
+
+
