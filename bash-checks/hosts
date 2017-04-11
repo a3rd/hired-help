@@ -1,0 +1,15 @@
+[servers]
+# andrew3rd2.mylabserver.com ansible_user=user ansible_become=true
+andrew3rd2.mylabserver.com 
+
+
+
+
+
+
+
+
+
+
+
+    
